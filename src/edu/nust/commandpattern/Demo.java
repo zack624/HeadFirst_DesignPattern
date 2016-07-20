@@ -2,8 +2,10 @@ package edu.nust.commandpattern;
 
 import edu.nust.commandpattern.command.CellingFanOffCommand;
 import edu.nust.commandpattern.command.CellingFanOnCommand;
+import edu.nust.commandpattern.command.Command;
 import edu.nust.commandpattern.command.LightOffCommand;
 import edu.nust.commandpattern.command.LightOnCommand;
+import edu.nust.commandpattern.command.MacroCommand;
 
 /**
  * 命令模式（Command Pattern）
@@ -31,16 +33,29 @@ public class Demo {
 		rc.setCommands(0, new LightOnCommand(l), new LightOffCommand(l));
 		
 		CellingFan cf = new CellingFan();
-		rc.setCommands(1, new CellingFanOnCommand(cf), new CellingFanOffCommand(cf));
+//		rc.setCommands(1, new CellingFanOnCommand(cf), new CellingFanOffCommand(cf));
+//		
+//		rc.showButtonDescription();
+//		
+//		rc.OnButtonWasPushed(0);
+//		rc.OffButtonWasPushed(0);
+//		rc.undoButtonWasPushed();
+//		
+//		rc.OnButtonWasPushed(1);
+//		rc.OffButtonWasPushed(1);
+//		rc.undoButtonWasPushed();
+
+//		宏命令
+		Command[] ocs = new Command[]{new CellingFanOnCommand(cf),new LightOnCommand(l),new LightOnCommand(l)};
+		Command[] ofcs = new Command[]{new CellingFanOffCommand(cf),new LightOffCommand(l),new LightOffCommand(l)};
+		Command onMacro = new MacroCommand(ocs);
+		Command offMacro = new MacroCommand(ofcs);
 		
-		rc.showButtonDescription();
+		rc.setCommands(0, onMacro, offMacro);
 		
-		rc.OnButtonWasPushed(0);
+//		rc.OnButtonWasPushed(0);
 		rc.OffButtonWasPushed(0);
-		rc.undoButtonWasPushed();
-		
-		rc.OnButtonWasPushed(1);
-		rc.OffButtonWasPushed(1);
+		System.out.println("------undo------");
 		rc.undoButtonWasPushed();
 	}
 }
