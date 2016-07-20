@@ -4,7 +4,7 @@ import java.util.Enumeration;
 
 /**
  * 适配器模式（Adapter Pattern）
- * 
+ * 将一个类的接口转换成客户需要的另一个接口，让原本不兼容的类合作无间
  * @author zack
  * @since 2016年7月20日
  */

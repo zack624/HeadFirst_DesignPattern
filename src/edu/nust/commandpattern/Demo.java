@@ -9,7 +9,7 @@ import edu.nust.commandpattern.command.MacroCommand;
 
 /**
  * 命令模式（Command Pattern）
- * 将“请求”封装成对象，以便使用不同的请求、队列或日志来参数化其他对象，同时支持可撤销操作
+ * 将请求封装成对象，以便使用不同的请求、队列或日志来参数化其他对象，同时支持可撤销操作
  * @author zack
  * @since 2016年7月15日
  */
