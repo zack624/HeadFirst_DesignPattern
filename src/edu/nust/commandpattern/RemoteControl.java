@@ -6,6 +6,7 @@ import edu.nust.commandpattern.command.NoCommand;
 public class RemoteControl {
 	Command[] onCommands;
 	Command[] offCommands;
+	private Command undo;
 	
 	//初始化按钮命令都为NoCommand
 	public RemoteControl() {
@@ -15,6 +16,7 @@ public class RemoteControl {
 			onCommands[i] = new NoCommand();
 			offCommands[i] = new NoCommand();
 		}
+		undo = new NoCommand();
 	}
 
 	public void setCommands(int slot,Command onc,Command offc){
@@ -24,10 +26,16 @@ public class RemoteControl {
 	
 	public void OnButtonWasPushed(int slot){
 		onCommands[slot].execute();
+		undo = onCommands[slot];
 	}
 	
 	public void OffButtonWasPushed(int slot){
 		offCommands[slot].execute();
+		undo = offCommands[slot];
+	}
+	
+	public void undoButtonWasPushed(){
+		undo.undo();
 	}
 	
 	public void showButtonDescription(){

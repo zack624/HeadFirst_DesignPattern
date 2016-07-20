@@ -15,4 +15,9 @@ public class CellingFanOnCommand implements Command{
 		cellingFan.high();
 	}
 
+	@Override
+	public void undo() {
+		cellingFan.off();
+	}
+
 }

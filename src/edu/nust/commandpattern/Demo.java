@@ -37,8 +37,10 @@ public class Demo {
 		
 		rc.OnButtonWasPushed(0);
 		rc.OffButtonWasPushed(0);
+		rc.undoButtonWasPushed();
+		
 		rc.OnButtonWasPushed(1);
 		rc.OffButtonWasPushed(1);
-		rc.OnButtonWasPushed(2);
+		rc.undoButtonWasPushed();
 	}
 }
