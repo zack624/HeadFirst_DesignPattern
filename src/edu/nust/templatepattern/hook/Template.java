@@ -1,7 +1,7 @@
 package edu.nust.templatepattern.hook;
 
 public abstract class Template {
-	public void templateMethod(){
+	public final void templateMethod(){
 		boilWater();
 		brew();
 		pourInCup();
@@ -20,11 +20,11 @@ public abstract class Template {
 
 	public abstract void brew();
 
-	public void pourInCup() {
+	public final void pourInCup() {
 		System.out.println("pour in cup.");
 	}
 
-	public void boilWater() {
+	public final void boilWater() {
 		System.out.println("boiling water.");
 	}
 }
